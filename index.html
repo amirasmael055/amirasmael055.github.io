@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en" manifest="slopkit.manifest"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AL AMIR | PS4 13.52 Host</title><style>html,body{margin:0;min-height:100%;background:#030c09;color:#f6e8bd;font-family:Arial,Tahoma,sans-serif;text-align:center}body{background:radial-gradient(ellipse at 50% 15%,#164936 0%,#071a13 45%,#020806 90%)}.shell{max-width:780px;margin:auto;padding:24px 14px 35px}.logo{display:block;width:min(270px,65vw);height:auto;margin:0 auto 4px;filter:drop-shadow(0 8px 22px #0009)}h1{color:#f8d78d;font-size:clamp(24px,5vw,38px);margin:5px 0 8px;letter-spacing:1px}.sub{font-size:17px;color:#e2c98e;margin:0 0 26px}.panel{border:1px solid #ad853a;border-radius:16px;background:#08261ddc;box-shadow:0 0 30px #0007;padding:24px 16px;margin:12px auto;max-width:610px}#msgs{font-size:clamp(18px,3.5vw,27px);line-height:1.6;color:#fff;margin:12px auto;min-height:70px;overflow-wrap:anywhere}.foot{color:#b5a478;font-size:13px;margin-top:30px}.foot a{color:#e9c76f} .line{height:2px;background:linear-gradient(90deg,transparent,#bd913f,transparent);margin:18px auto;max-width:530px}
+.start-btn{display:block;width:min(460px,95%);margin:18px auto 10px;padding:19px 14px;border:2px solid #ffdc83;border-radius:15px;background:linear-gradient(135deg,#f8d879,#bd842b 55%,#f8d879);color:#12271c;font-weight:900;font-size:clamp(19px,4vw,26px);letter-spacing:1px;cursor:pointer;box-shadow:0 7px 0 #76501c,0 13px 32px #000a;text-shadow:0 1px #fff6}.start-btn:focus-visible{outline:3px solid white;outline-offset:5px}.start-btn:disabled{opacity:.55;cursor:default}.start-btn:active:not(:disabled){transform:translateY(3px);box-shadow:0 4px 0 #76501c}.hint{font-size:14px;color:#dbc995;margin:10px 0 0}.shell{padding-top:12px}.logo{width:min(330px,70vw)}
+
+/* AL AMIR ROYAL 5D presentation: visual only */
+body{background:radial-gradient(ellipse at 50% 20%,#15503b 0%,#041b15 48%,#010806 100%);overflow-x:hidden}
+.shell{position:relative;max-width:790px;padding-top:7px}
+.shell:before{content:"";position:absolute;z-index:-1;top:8px;left:10%;right:10%;height:350px;background:radial-gradient(ellipse,#d8ae4a27,transparent 65%);pointer-events:none}
+.logo{width:min(310px,65vw);filter:drop-shadow(0 10px 13px #000b) drop-shadow(0 0 19px #d4a93b66);animation:royalFloat 5s ease-in-out infinite;transform:translateZ(0)}
+@keyframes royalFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+h1{font-size:clamp(26px,5vw,42px);color:#ffe5a0;text-shadow:0 2px 2px #513000,0 0 20px #b7883b88;letter-spacing:4px}
+.panel{position:relative;border:1px solid #e1b75a;border-radius:20px;background:linear-gradient(155deg,#104032ef,#03130ff5);box-shadow:inset 0 1px #fff2,0 16px 45px #000a,0 0 24px #c69b2730;max-width:640px;padding:22px 20px}
+.panel:before{content:"";position:absolute;top:0;left:18%;right:18%;height:1px;background:linear-gradient(90deg,transparent,#fff0b3,transparent)}
+#msgs{min-height:48px;font-size:clamp(17px,3vw,24px);margin:10px auto;color:#fff1c5}
+#startJb{display:none!important}
+.royal-meter{height:24px;position:relative;overflow:hidden;border-radius:14px;border:1px solid #e3c16b;background:#010d0a;box-shadow:inset 0 3px 9px #000,0 0 18px #d6b04b44;margin:22px auto 9px;max-width:560px}
+.royal-fill{width:0%;height:100%;position:relative;border-radius:13px;background:linear-gradient(180deg,#fff0ad 0%,#e5b749 40%,#966219 75%,#e9bb56 100%);box-shadow:0 0 16px #ffd66d99;transition:width .75s ease-out}
+.royal-fill:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(110deg,transparent 0,transparent 18px,#ffffff45 20px,transparent 35px);animation:slideShine 1.2s linear infinite}
+@keyframes slideShine{to{background-position:54px 0}}
+.royal-meter.finished .royal-fill{background:linear-gradient(180deg,#c7ffd5,#2ed67c,#086d39);box-shadow:0 0 22px #2fed85}
+.royal-meter.failed .royal-fill{background:linear-gradient(180deg,#ffb6a2,#c34c38)}
+.meter-label{color:#e9d3a1;font-size:14px;letter-spacing:1px;margin-top:9px}
+.royal-state{font-size:12px;color:#c7ac72;margin:10px 0}
+@media(prefers-reduced-motion:reduce){.logo,.royal-fill:after{animation:none}}
+</style></head><body><main class="shell"><img class="logo" src="al_amir_logo.png" alt="AL AMIR logo"><h1>AL AMIR</h1><p class="sub">PS4 Firmware 13.52 • GoldHEN Host</p><div class="line"></div><section class="panel"><div id="cacheStatus" style="font-size:14px;color:#f8d78d" role="status">Checking offline cache...</div><div class="royal-meter" id="royalMeter" role="progressbar" aria-label="GoldHEN activation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="royal-fill" id="royalFill"></div></div><div class="meter-label" id="meterLabel">PREPARING GOLDHEN</div><div id="msgs" role="status">Preparing automatic start • PS4 13.52</div><button class="start-btn" id="startJb" type="button" onclick="startJailbreak()">STARTING AUTOMATICALLY...</button><p class="hint">AL AMIR • Automatic launch on PS4 13.52</p></section><p class="foot">AL AMIR • PS4 Host<br>Based on the original GameOver / Houbi project</p><p style="margin:14px auto"><a href="cacheslopkit.html" style="color:#f8d78d">Install offline cache (optional)</a></p></main><script>
+var launchStarted=false;
+function startJailbreak(){
+ if(launchStarted)return;launchStarted=true;
+ var btn=document.getElementById('startJb');
+ if(btn){btn.disabled=true;btn.textContent='STARTING...';}
+ document.getElementById('msgs').textContent='Loading... Please wait';
+ runOriginalHost();
+}
+function runOriginalHost(){
+ var m=document.getElementById('msgs');
+ var match=navigator.userAgent.match(/PlayStation 4[ \/]([\d.]+)/i);
+ if(!match){m.textContent='Open this page on PS4 firmware 13.52';return;}
+ var firmware=parseFloat(match[1]);
+ if(!(firmware>=13.02 && firmware<=13.52)){m.textContent='Unsupported firmware: '+match[1];return;}
+ var script=document.createElement('script');
+ script.type='module';script.src='slopkit/jb.js?v=19';
+ script.onerror=function(){m.textContent='Loading failed: check slopkit/jb.js and its dependencies on the host.';};
+ document.head.appendChild(script);
+}
+(function(){
+ var c=window.applicationCache;
+ var status=function(t){var el=document.getElementById('cacheStatus');if(el)el.textContent=t;};
+ if(!c){document.addEventListener('DOMContentLoaded',function(){status('Offline cache not supported by this browser');});return;}
+ c.addEventListener('checking',function(){status('Checking offline files...');});
+ c.addEventListener('downloading',function(){status('Downloading files for offline use...');});
+ c.addEventListener('progress',function(e){if(e.lengthComputable&&e.total)status('Saving offline files: '+Math.round(100*e.loaded/e.total)+'%');});
+ c.addEventListener('cached',function(){status('Offline files saved. You can use the site without internet next time.');});
+ c.addEventListener('noupdate',function(){status('Offline files ready (or already up to date).');});
+ c.addEventListener('updateready',function(){status('Offline update downloaded. Reopen the browser to activate it.');});
+ c.addEventListener('error',function(){status('Offline cache could not be installed. Check GitHub Pages and manifest response.');});
+ document.addEventListener('DOMContentLoaded',function(){if(navigator.onLine===false)status('Offline mode');});
+})();
+
+(function(){
+ var pct=0,done=false,started=Date.now(),fill,meter,label,msg,observer;
+ function setProgress(n){pct=Math.max(pct,Math.min(100,n));fill.style.width=pct+'%';meter.setAttribute('aria-valuenow',Math.round(pct));}
+ function finish(ok){if(done)return;done=true;meter.className='royal-meter '+(ok?'finished':'failed');setProgress(100);label.textContent=ok?'GOLDHEN ACTIVATED':'ACTIVATION FAILED';}
+ function inspect(){
+  var t=(msg.textContent||'').toLowerCase();
+  if(/goldhen loaded|goldhen is already loaded/.test(t))finish(true);
+  else if(/failed to load|loading failed|unsupported firmware|open this page on ps4|error/.test(t))finish(false);
+ }
+ document.addEventListener('DOMContentLoaded',function(){
+  fill=document.getElementById('royalFill');meter=document.getElementById('royalMeter');label=document.getElementById('meterLabel');msg=document.getElementById('msgs');
+  if(window.MutationObserver){observer=new MutationObserver(inspect);observer.observe(msg,{childList:true,characterData:true,subtree:true});}
+  setProgress(4);startJailbreak();
+  var interval=setInterval(function(){
+   if(done){clearInterval(interval);return;}
+   inspect();if(done){clearInterval(interval);return;}
+   var elapsed=(Date.now()-started)/1000;
+   // Indeterminate visual movement only. Never report completion before the actual host confirms it.
+   var target=Math.min(92,8+84*(1-Math.exp(-elapsed/18)));
+   setProgress(target);
+   if(pct<35)label.textContent='LOADING EXPLOIT';
+   else if(pct<75)label.textContent='ACTIVATING GOLDHEN';
+   else label.textContent='FINALIZING • PLEASE WAIT';
+  },600);
+ });
+})();
+</script></body></html>
