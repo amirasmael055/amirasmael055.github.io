@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مضيف PS4 لإصدار 9.00 - النسخة 3.0 (تشغيل تلقائي)</title>
+<link rel="stylesheet" href="../style.css">
+<script src="int64.js"></script>
+<script src="rop.js"></script>
+<script src="kexploit.js"></script>
+<script src="webkit.js"></script>
+</head>
+<body onload="setTimeout(poc, 50);">
+<script>
+if (window.applicationCache.status=='0'){window.location.replace("cache.html");}
+</script>
+<h1 id="msgs">مضيف PS4 لإصدار 9.00 - النسخة 3.0</h1>
+<hr>
+<br>
+<div id="progress">
+<h1 id="msgs2" style="font-size: 30px;margin-top: 77px;margin-bottom: 412px;">جارٍ تنفيذ الجيلبريك... يرجى الانتظار</h1>
+</div>
+<div id="menu" style="display: none">
+<h1 style="font-size: 18px;color: yellow;">الحمولات الرئيسية</h1>
+<button class="btn" onmouseover="msgs.innerHTML='إصلاح GoldHEN لإصدار 9.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_goldhenbeta()"> إصلاح GoldHEN </button>
+<button class="btn" onmouseover="msgs.innerHTML='إصلاح GoldHEN لإصدار 9.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_goldhen23()"> إصلاح GoldHEN </button>
+<button class="btn" onmouseover="msgs.innerHTML='أرسل الحمولة إلى المنفذ 9020'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_binloader()"> محمّل الحمولات </button>
+<br>
+<h1 style="font-size: 18px;">الحمولات</h1>
+<button class="btn" onmouseover="msgs.innerHTML='انسخ اللعبة فقط إلى وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Gdumper()"> استخراج الألعاب </button>
+<button class="btn" onmouseover="msgs.innerHTML='انسخ التحديث فقط إلى وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Udumper()"> استخراج التحديثات </button>
+<button class="btn" onmouseover="msgs.innerHTML='انسخ اللعبة والتحديث كلّاً على حدة إلى وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_SGUdumper()"> استخراج اللعبة والتحديث منفصلين </button>
+<button class="btn" onmouseover="msgs.innerHTML='انسخ اللعبة والتحديث معاً إلى وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_MGUdumper()"> استخراج اللعبة والتحديث معاً </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تفعيل بعض وظائف التصحيح المتاحة في TestKit'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_todex()"> ToDex </button>
+<a href="webactivator.html"><button class="btn" onmouseover="msgs.innerHTML='تفعيل حساب المستخدم من متصفح الجهاز'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'"> تفعيل الحساب عبر المتصفح </button></a>
+<button class="btn" onmouseover="msgs.innerHTML='الوصول إلى الجهاز عبر FTP (انتبه لما تقوم به)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_ftp()"> FTP </button>
+<button class="btn" onmouseover="msgs.innerHTML='انقل الألعاب المثبّتة إلى وحدة USB بنظام exFAT'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_app2usb()"> App2USB </button>
+<button class="btn" onmouseover="msgs.innerHTML='احفظ نسخة من قاعدة البيانات والمستخدمين على وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_dbackup()"> نسخ قاعدة البيانات احتياطياً </button>
+<button class="btn" onmouseover="msgs.innerHTML='استعد قاعدة البيانات والمستخدمين من وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_dbrestore()"> استعادة قاعدة البيانات </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تفعيل تحديثات النظام'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_enablebUpdates()"> تفعيل التحديثات </button>
+<button class="btn" onmouseover="msgs.innerHTML='إيقاف تحديثات النظام'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_disableUpdates()"> إيقاف التحديثات </button>
+<button class="btn" onmouseover="msgs.innerHTML='تفعيل سجل المتصفح أو إيقافه'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_historyBlocker()"> منع سجل التصفح </button>
+<button class="btn" onmouseover="msgs.innerHTML='احفظ نسخة من نواة الجهاز على وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_kernelDump()"> استخراج النواة </button>
+<button class="btn" onmouseover="msgs.innerHTML='احفظ وحدة من النواة على وحدة USB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_moduleDump()"> استخراج وحدات النواة </button>
+<button class="btn" onmouseover="msgs.innerHTML='أدوات تصحيح PS4 لإصدار 9.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_ps4debug()"> تصحيح PS4 </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='إيقاف ASLR (عشوائية تخطيط الذاكرة)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_disbAslr()"> إيقاف ASLR </button>
+<button class="btn" onmouseover="msgs.innerHTML='أوقف وضع IDU إذا فعّلته عن طريق الخطأ'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_exitidu()"> الخروج من وضع IDU </button>
+<button class="btn" onmouseover="msgs.innerHTML='يحوّل ملفات RIF الوهمية إلى ملفات RIF مجانية'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_rifRen()"> إعادة تسمية RIF </button>
+<button class="btn" onmouseover="msgs.innerHTML='تفعيل UART بشكل دائم لإصدار 9.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_permUart()"> UART دائم </button>
+<button class="btn" onmouseover="msgs.innerHTML='مطلوب لتفعيل الغش عبر موقع PS4 Trainer'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_webrte()"> WebRTE </button>
+<a href="http://ps4trainer.com/Trainer/index.html"><button class="btn btn-onln" onmouseover="msgs.innerHTML='موقع PS4 Trainer (اتبع التعليمات هناك)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'"> موقع PS4 Trainer </button></a>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='قائمة محمّلات Linux'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="linux_group()" style="margin-left: 69px"> محمّلات Linux </button>
+<button class="btn btn-onln" onmouseover="msgs.innerHTML='تعديلات الألعاب (مستضافة عبر الإنترنت)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="mods_group()"> تعديلات الألعاب (عبر الإنترنت) </button>
+<button class="btn btn-toolbox" onmouseover="msgs.innerHTML='Orbis Toolbox Alpha 1190 لإصدار 9.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_toolbox()"> Orbis Toolbox </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل سرعة مروحة PS4'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_fanthreshold()" style="margin-bottom: 70px"> حدّ حرارة المروحة </button><select id="tempC"></select>°C
+</div>
+<div id="lnx">
+<h1 style="font-size: 18px;color: yellow;">حمولات Linux</h1>
+<button class="btn" onmouseover="msgs.innerHTML='تعرّف على شريحة Southbridge في جهازك قبل تثبيت Linux'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_southbridge()"> ما نوع Southbridge؟ </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux بذاكرة VRAM سعة 1GB (PSXita)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linux1gb()"> Linux 1GB </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux بذاكرة VRAM سعة 2GB (PSXita)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linux2gb()"> Linux 2GB </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux بذاكرة VRAM سعة 3GB (PSXita)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linux3gb()"> Linux 3GB </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux بذاكرة VRAM سعة 4GB (PSXita)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linux4gb()"> Linux 4GB </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux على PS4 Pro بذاكرة VRAM سعة 1GB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linuxPS4Pro1gb()"> Linux 1GB (PS4-Pro) </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux على PS4 Pro بذاكرة VRAM سعة 2GB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linuxPS4Pro2gb()"> Linux 2GB (PS4-Pro) </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux على PS4 Pro بذاكرة VRAM سعة 3GB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linuxPS4Pro3gb()"> Linux 3GB (PS4-Pro) </button>
+<button class="btn" onmouseover="msgs.innerHTML='تشغيل Linux على PS4 Pro بذاكرة VRAM سعة 4GB'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_linuxPS4Pro4gb()"> Linux 4GB (PS4-Pro) </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='العودة إلى القائمة الرئيسية'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_menu()" style="margin-bottom: 241px"> رجوع </button>
+</div>
+<div id="mods">
+<h1 style="font-size: 18px;color: yellow;">حمولات عبر الإنترنت</h1>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Arabic Guy v1.00 (L1 + R1)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_arabicGuy100()"> Arabic Guy v1.00 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Arabic Guy v1.27 (L1 + R1)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_arabicGuy127()"> Arabic Guy v1.27 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Arabic Guy v1.32 (L1 + R1)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_arabicGuy132()"> Arabic Guy v1.32 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Arabic Guy v1.33 (L1 + R1)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_arabicGuy133()"> Arabic Guy v1.33 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Expulsion v4.0 - 1.38'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Expulsion()"> Expulsion v4.0 - 1.38 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Lamance v0.9 - 1.38 (يمين + مربع)'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Lamance()"> Lamance v0.9 - 1.38 </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: WildeModz-1.32'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_WildeModz132()"> WildeModz-1.32 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: WildeModz-1.33'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_WildeModz133()"> WildeModz-1.33 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: WildeModz-1.38'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_WildeModz138()"> WildeModz-1.38 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: WildeModz-1.46'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_WildeModz146()"> WildeModz-1.46 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: WildeModz-1.47'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_WildeModz147()"> WildeModz-1.47 </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Beef Queef Mod v1.33'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_beefQueef133()"> Beef Queef Mod v1.33 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Beef Queef Mod v1.34'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_beefQueef134()"> Beef Queef Mod v1.34 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Beef Queef Mod v1.38d'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_beefQueef138()"> Beef Queef Mod v1.38d </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل GTA V: Beef Queef Mod v1.47'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_beefQueef147()"> Beef Queef Mod v1.47 </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل RDR2: Oysters Menu v1.00'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Oysters100()"> RDR2 v1.00 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل RDR2: Oysters Menu v1.13'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Oysters113()"> RDR2 v1.13 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل RDR2: Oysters Menu v1.19'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Oysters119()"> RDR2 v1.19 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل RDR2: Oysters Menu v1.24'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Oysters124()"> RDR2 v1.24 </button>
+<button class="btn" onmouseover="msgs.innerHTML='تعديل RDR2: Oysters Menu v1.29'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_Oysters129()"> RDR2 v1.29 </button>
+<br>
+<button class="btn" onmouseover="msgs.innerHTML='العودة إلى القائمة الرئيسية'" onmouseout="msgs.innerHTML='مضيف PS4 لإصدار 9.00 - النسخة 3.0'" onclick="load_menu()" style="margin-bottom: 179px"> رجوع </button>
+</div>
+<br>
+<h1 style="margin-top: 22px;">شكر خاص لـ:<a href="https://twitter.com/sleirsgoevy" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@sleirsgoevy</a>ChendoChap<a href="https://twitter.com/Znullptr" style="color: #f31414;margin-left: 10px;margin-right: 10px;">@Znullptr</a>SiSTR0</h1>
+<script>
+function jbdone(){
+document.getElementById("menu").style.display = "block";
+document.getElementById("progress").style.display = "none";
+}
+
+function linux_group(){
+document.getElementById("lnx").style.display = "block";
+document.getElementById("menu").style.display = "none";
+document.getElementById("progress").style.display = "none";
+}
+
+function mods_group(){
+document.getElementById("mods").style.display = "block";
+document.getElementById("menu").style.display = "none";
+document.getElementById("progress").style.display = "none";
+}
+
+function load_menu(){
+document.getElementById("menu").style.display = "block";
+document.getElementById("lnx").style.display = "none";
+document.getElementById("mods").style.display = "none";
+document.getElementById("progress").style.display = "none";
+}
+
+function allset(){
+msgs.innerHTML = LoadedMSG
+}
+
+function load_poc(){
+ var req = new XMLHttpRequest();
+ req.responseType = "arraybuffer";
+ req.open('GET', PLfile);
+ req.send();
+ req.onreadystatechange = function () {
+  if (req.readyState == 4) {
+   PLD = req.response;
+   var payload_buffer = chain.syscall(477, 0, PLD.byteLength*4 , 7, 0x1002, -1, 0);
+   var pl = p.array_from_address(payload_buffer, PLD.byteLength*4);
+   var padding = new Uint8Array(4 - (req.response.byteLength % 4) % 4);
+   var tmp = new Uint8Array(req.response.byteLength + padding.byteLength);
+   tmp.set(new Uint8Array(req.response), 0);
+   tmp.set(padding, req.response.byteLength);
+   var shellcode = new Uint32Array(tmp.buffer);
+   pl.set(shellcode,0);
+   var pthread = p.malloc(0x10);
+   chain.call(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_buffer, 0);
+   allset();
+  }
+ };
+}
+
+function load_binloader(){
+    var payload_buffer = chain.syscall(477, 0x0, 0x300000, 0x7, 0x1000, 0xFFFFFFFF, 0);
+    var payload_loader = p.malloc32(0x1000);
+    
+    var loader_writer = payload_loader.backing;
+    loader_writer[0] = 0x56415741;
+    loader_writer[1] = 0x83485541;
+    loader_writer[2] = 0x894818EC;
+    loader_writer[3] = 0xC748243C;
+    loader_writer[4] = 0x10082444;
+    loader_writer[5] = 0x483C2302;
+    loader_writer[6] = 0x102444C7;
+    loader_writer[7] = 0x00000000;
+    loader_writer[8] = 0x000002BF;
+    loader_writer[9] = 0x0001BE00;
+    loader_writer[10] = 0xD2310000;
+    loader_writer[11] = 0x00009CE8;
+    loader_writer[12] = 0xC7894100;
+    loader_writer[13] = 0x8D48C789;
+    loader_writer[14] = 0xBA082474;
+    loader_writer[15] = 0x00000010;
+    loader_writer[16] = 0x000095E8;
+    loader_writer[17] = 0xFF894400;
+    loader_writer[18] = 0x000001BE;
+    loader_writer[19] = 0x0095E800;
+    loader_writer[20] = 0x89440000;
+    loader_writer[21] = 0x31F631FF;
+    loader_writer[22] = 0x0062E8D2;
+    loader_writer[23] = 0x89410000;
+    loader_writer[24] = 0x2C8B4CC6;
+    loader_writer[25] = 0x45C64124;
+    loader_writer[26] = 0x05EBC300;
+    loader_writer[27] = 0x01499848;
+    loader_writer[28] = 0xF78944C5;
+    loader_writer[29] = 0xBAEE894C;
+    loader_writer[30] = 0x00001000;
+    loader_writer[31] = 0x000025E8;
+    loader_writer[32] = 0x7FC08500;
+    loader_writer[33] = 0xFF8944E7;
+    loader_writer[34] = 0x000026E8;
+    loader_writer[35] = 0xF7894400;
+    loader_writer[36] = 0x00001EE8;
+    loader_writer[37] = 0x2414FF00;
+    loader_writer[38] = 0x18C48348;
+    loader_writer[39] = 0x5E415D41;
+    loader_writer[40] = 0x31485F41;
+    loader_writer[41] = 0xC748C3C0;
+    loader_writer[42] = 0x000003C0;
+    loader_writer[43] = 0xCA894900;
+    loader_writer[44] = 0x48C3050F;
+    loader_writer[45] = 0x0006C0C7;
+    loader_writer[46] = 0x89490000;
+    loader_writer[47] = 0xC3050FCA;
+    loader_writer[48] = 0x1EC0C748;
+    loader_writer[49] = 0x49000000;
+    loader_writer[50] = 0x050FCA89;
+    loader_writer[51] = 0xC0C748C3;
+    loader_writer[52] = 0x00000061;
+    loader_writer[53] = 0x0FCA8949;
+    loader_writer[54] = 0xC748C305;
+    loader_writer[55] = 0x000068C0;
+    loader_writer[56] = 0xCA894900;
+    loader_writer[57] = 0x48C3050F;
+    loader_writer[58] = 0x006AC0C7;
+    loader_writer[59] = 0x89490000;
+    loader_writer[60] = 0xC3050FCA;
+    chain.syscall(74, payload_loader, 0x4000, (0x1 | 0x2 | 0x4));
+
+    var pthread = p.malloc(0x10);
+    //
+    {
+        chain.fcall(window.syscalls[203], payload_buffer, 0x300000);
+        chain.fcall(libKernelBase.add32(OFFSET_lk_pthread_create), pthread, 0x0, payload_loader, payload_buffer);
+    }
+    chain.run();
+	LoadedMSG="تم تحميل محمّل الحمولات Launched ... بنجاح ✔";
+	alert("بانتظار الحمولة... أرسلها إلى عنوان IP الخاص بـ PS4 عبر المنفذ 9020");
+	allset();
+	}
+
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest(path);
+    xhr.open("GET", path, false);
+    xhr.send('');
+    return xhr.responseText;
+}
+
+for(var i=40; i<=75; i=i+5){
+    var select = document.getElementById("tempC");
+    var option = document.createElement("OPTION");
+	select.options.add(option);
+	option.text = i;
+	option.value = i;
+}
+tempC.value=60;
+
+function load_linux1gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 1GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('Linux-1gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linux2gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 2GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('Linux-2gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linux3gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 3GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('Linux-3gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linux4gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 4GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('Linux-4gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linuxPS4Pro1gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 1GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('LinuxPro-1gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linuxPS4Pro2gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 2GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('LinuxPro-2gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linuxPS4Pro3gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 3GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('LinuxPro-3gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_linuxPS4Pro4gb(){
+msgs.innerHTML="تم تشغيل محمّل Linux بذاكرة 4GB";
+setTimeout(loadScript("netcat.js")
++loadScript('malloc.js')
++loadScript('rop2.js')
++loadScript('syscalls.js')
++loadScript('syscalls2.js')
++loadScript('LinuxPro-4gb.js')
++loadScript('jbc_loader.js')
++loadScript('relocator.js'),1500);
+}
+
+function load_goldhenbeta(){
+LoadedMSG="تم تحميل تم تحميل GoldHEN بنجاح بنجاح ✔";
+PLfile = "goldhen.bin";
+load_poc();
+}
+
+function load_goldhen23(){
+LoadedMSG="تم تحميل تم تحميل GoldHEN بنجاح بنجاح ✔";
+PLfile = "goldhen.bin";
+load_poc();
+}
+
+function load_Gdumper(){
+LoadedMSG="تم تحميل استخراج الألعاب بنجاح ✔";
+PLfile = "dumperG.bin";
+load_poc();
+}
+
+function load_Udumper(){
+LoadedMSG="تم تحميل استخراج التحديثات بنجاح ✔";
+PLfile = "dumperU.bin";
+load_poc();
+}
+
+function load_SGUdumper(){
+LoadedMSG="تم تحميل Separate Game and Update Dumper بنجاح ✔";
+PLfile = "dumperSGU.bin";
+load_poc();
+}
+
+function load_MGUdumper(){
+LoadedMSG="تم تحميل Merged Game and Update Dumper بنجاح ✔";
+PLfile = "dumperMGU.bin";
+load_poc();
+}
+
+function load_todex(){
+LoadedMSG="تم تحميل ToDex بنجاح ✔";
+PLfile = "todex.bin";
+load_poc();
+}
+
+function load_ftp(){
+LoadedMSG="تم تحميل FTP بنجاح ✔"
+PLfile = "ftp.bin";
+load_poc();
+}
+
+function load_app2usb(){
+LoadedMSG="تم تحميل App2USB بنجاح ✔"
+PLfile = "app2usb.bin";
+load_poc();
+}
+
+function load_dbackup(){
+LoadedMSG="تم تحميل نسخ قاعدة البيانات احتياطياً بنجاح ✔"
+PLfile = "backup.bin";
+load_poc();
+}
+
+function load_dbrestore(){
+LoadedMSG="تم تحميل استعادة قاعدة البيانات بنجاح ✔"
+PLfile = "restore.bin";
+load_poc();
+}
+
+function load_enablebUpdates(){
+LoadedMSG="تم تحميل تفعيل التحديثات بنجاح ✔"
+PLfile = "enable-updates.bin";
+load_poc();
+}
+
+function load_disableUpdates(){
+LoadedMSG="تم تحميل إيقاف التحديثات بنجاح ✔"
+PLfile = "disable-updates.bin";
+load_poc();
+}
+
+function load_historyBlocker(){
+LoadedMSG="تم تحميل منع سجل التصفح بنجاح ✔"
+PLfile = "history-blocker.bin";
+load_poc();
+}
+
+function load_kernelDump(){
+LoadedMSG="تم تحميل استخراج النواة بنجاح ✔"
+PLfile = "kernel-dumper.bin";
+load_poc();
+}
+
+function load_moduleDump(){
+LoadedMSG="تم تحميل استخراج وحدات النواة بنجاح ✔"
+PLfile = "module-dumper.bin";
+load_poc();
+}
+
+function load_ps4debug(){
+LoadedMSG="تم تحميل تصحيح PS4 بنجاح ✔"
+PLfile = "ps4debug.bin";
+load_poc();
+}
+
+function load_disbAslr(){
+LoadedMSG="تم تحميل إيقاف ASLR بنجاح ✔"
+PLfile = "disable-aslr.bin";
+load_poc();
+}
+
+function load_exitidu(){
+LoadedMSG="تم تحميل الخروج من وضع IDU بنجاح ✔"
+PLfile = "exit-idu.bin";
+load_poc();
+}
+
+function load_rifRen(){
+LoadedMSG="تم تحميل إعادة تسمية RIF بنجاح ✔"
+PLfile = "rif-renamer.bin";
+load_poc();
+}
+
+function load_permUart(){
+LoadedMSG="تم تحميل UART دائم بنجاح ✔"
+PLfile = "permanent-uart.bin";
+load_poc();
+}
+
+function load_webrte(){
+LoadedMSG="تم تحميل WebRTE بنجاح ✔"
+PLfile = "webrte.bin";
+load_poc();
+}
+
+function load_toolbox(){
+LoadedMSG="تم تحميل Orbis Toolbox بنجاح ✔"
+PLfile = "Orbis Toolbox-900.bin";
+load_poc();
+}
+
+function load_fanthreshold(){
+LoadedMSG="تم تحميل حدّ حرارة المروحة بنجاح ✔"
+PLfile = "fan-threshold"+tempC.value+".bin";
+load_poc();
+}
+
+function load_southbridge(){
+LoadedMSG="تم تحميل Payload بنجاح ✔"
+PLfile = "southbridge.bin";
+load_poc();
+}
+
+function load_arabicGuy100(){
+LoadedMSG="تم تحميل Arabic Guy v1.00 بنجاح ✔"
+PLfile = "arabic-guy100.bin";
+load_poc();
+}
+
+function load_arabicGuy127(){
+LoadedMSG="تم تحميل Arabic Guy v1.27 بنجاح ✔"
+PLfile = "arabic-guy127.bin";
+load_poc();
+}
+
+function load_arabicGuy132(){
+LoadedMSG="تم تحميل Arabic Guy v1.32 بنجاح ✔"
+PLfile = "arabic-guy132.bin";
+load_poc();
+}
+
+function load_arabicGuy133(){
+LoadedMSG="تم تحميل Arabic Guy v1.33 بنجاح ✔"
+PLfile = "arabic-guy133.bin";
+load_poc();
+}
+
+function load_Expulsion(){
+LoadedMSG="تم تحميل Expulsion v4.0 بنجاح ✔"
+PLfile = "Expulsion-V4.0-1.38.bin";
+load_poc();
+}
+
+function load_Lamance(){
+LoadedMSG="تم تحميل Lamance v0.9 بنجاح ✔"
+PLfile = "Lamance-v0.9-1.38.bin";
+load_poc();
+}
+
+function load_WildeModz132(){
+LoadedMSG="تم تحميل WildeModz-1.32 بنجاح ✔"
+PLfile = "WildeModz-1.32.bin";
+load_poc();
+}
+
+function load_WildeModz133(){
+LoadedMSG="تم تحميل WildeModz-1.33 بنجاح ✔"
+PLfile = "WildeModz-1.33.bin";
+load_poc();
+}
+
+function load_WildeModz138(){
+LoadedMSG="تم تحميل WildeModz-1.38 بنجاح ✔"
+PLfile = "WildeModz-1.38.bin";
+load_poc();
+}
+
+function load_WildeModz146(){
+LoadedMSG="تم تحميل WildeModz-1.46 بنجاح ✔"
+PLfile = "WildeModz-1.46.bin";
+load_poc();
+}
+
+function load_WildeModz147(){
+LoadedMSG="تم تحميل WildeModz-1.47 بنجاح ✔"
+PLfile = "WildeModz-1.47.bin";
+load_poc();
+}
+
+function load_beefQueef133(){
+LoadedMSG="تم تحميل Beef Queef Mod v1.33 بنجاح ✔"
+PLfile = "BeefQueefMod-133.bin";
+load_poc();
+}
+
+function load_beefQueef134(){
+LoadedMSG="تم تحميل Beef Queef Mod v1.34 بنجاح ✔"
+PLfile = "BeefQueefMod-134.bin";
+load_poc();
+}
+
+function load_beefQueef138(){
+LoadedMSG="تم تحميل Beef Queef Mod v1.38d بنجاح ✔"
+PLfile = "BeefQueefMod-138d.bin";
+load_poc();
+}
+
+function load_beefQueef147(){
+LoadedMSG="تم تحميل Beef Queef Mod v1.47 بنجاح ✔"
+PLfile = "BeefQueefMod-Unified-147e.bin";
+load_poc();
+}
+
+function load_Oysters100(){
+LoadedMSG="تم تحميل Oysters Menu v1.00 بنجاح ✔"
+PLfile = "OystersMenu-v1.00.bin";
+load_poc();
+}
+
+function load_Oysters113(){
+LoadedMSG="تم تحميل Oysters Menu v1.13 بنجاح ✔"
+PLfile = "OystersMenu-v1.13.bin";
+load_poc();
+}
+
+function load_Oysters119(){
+LoadedMSG="تم تحميل Oysters Menu v1.19 بنجاح ✔"
+PLfile = "OystersMenu-v1.19.bin";
+load_poc();
+}
+
+function load_Oysters124(){
+LoadedMSG="تم تحميل Oysters Menu v1.24 بنجاح ✔"
+PLfile = "OystersMenu-v1.24.bin";
+load_poc();
+}
+
+function load_Oysters129(){
+LoadedMSG="تم تحميل Oysters Menu v1.29 بنجاح ✔"
+PLfile = "OystersMenu-v1.29.bin";
+load_poc();
+}
+</script>
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3ca0b90d6a7c4ad286b6753689228814"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

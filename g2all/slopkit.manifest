@@ -1,0 +1,41 @@
+CACHE MANIFEST
+# BLACK-CROWN-FAST-AUTO-2026-11-22-V2
+# GAMEOVER-CACHE-VERSION: 17e05850fad6e1ab57d6421fd3d25a782058cd25189a50035ff2d1d396a9c67b
+# GameOver 14.02 chain cache refresh
+# GoldHEN payload: Telegram Desktop user-modified build SHA256 9b0dfe2f796499f47ec8dc83cf449c771164f8b9e4c04a6529eee2e0d0b40180
+
+CACHE:
+../black-crown-fast.jpg
+../style.css
+goldhen.bin
+index.html
+cacheslopkit.html
+slopkit\chain_lapse.js
+slopkit\patches\1400.bin
+slopkit\jb2.js
+slopkit\afterglow.js
+slopkit\chain_poops.js
+slopkit\core.js?v=10
+slopkit\core.js
+slopkit\int64.js
+slopkit\jb.js?v=19
+slopkit\mem.js
+slopkit\ps4_offsets.js
+slopkit\rpc_worker.js
+slopkit\patches\1150.bin
+slopkit\patches\1200.bin
+slopkit\patches\1250.bin
+slopkit\patches\1300.bin
+slopkit\patches\1302.bin
+slopkit\patches\1350.bin
+slopkit\patches\1352.bin
+
+slopkit\1402\afterglow.js
+slopkit\1402\core.js
+slopkit\1402\int64.js
+slopkit\1402\jb2.js
+slopkit\1402\mem.js
+slopkit\1402\ps4_offsets.js
+slopkit\patches\1402.bin
+NETWORK:
+*
