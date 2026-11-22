@@ -1,0 +1,6 @@
+BLACK CROWN FAST AUTO TEST
+- Reduced large background to JPEG without altering exploit binaries.
+- Removed redundant image and heavy global stylesheet.
+- Cache installation pages automatically redirect to index after successful cache event.
+- Browser compatibility and exploit operation require testing on PS4.
+- First cache download time depends on internet and manifest size.
